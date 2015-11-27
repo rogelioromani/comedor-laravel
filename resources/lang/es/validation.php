@@ -102,8 +102,10 @@ return array(
     */
 
     'attributes' => array(
+        'dni' => 'DNI',
         'name' => 'Nombre Completo',
         'email' => 'Correo electrónico',
+        'lu' => 'Libreta universitaria',
         'password' => 'Contraseña',
         'password_confirmation' => 'Confirme su Contraseña',
     ),

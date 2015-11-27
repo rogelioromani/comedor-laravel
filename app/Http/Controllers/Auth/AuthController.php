@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Usuarios;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -43,27 +43,28 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:usuarios',
             'password' => 'required|confirmed|min:6',
         ]);
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Create a new usuario instance after a valid registration.
      *
      * @param  array  $data
      * @return User
      */
     protected function create(array $data)
     {
-        $user = new User([
-            'name' => $data['name'],
+        $usuario = new Usuarios([
+            'dni' => $data['dni'],
+            'nombre' => $data['name'],
             'email' => $data['email'],
+            'lu' => $data['lu'],
             'password' => bcrypt($data['password']),
         ]);
-        $user->role = 'user';
-        $user->save();
-        return $user;
+        $usuario->save();
+        return $usuario;
     }
 
     /**

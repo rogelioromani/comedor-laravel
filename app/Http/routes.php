@@ -41,3 +41,10 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+//Definimos un grupo de rutas bajo el prefijo de admin
+Route::group(['prefix' => 'admin',  'middleware' => ['auth'], 'namespace' => 'Admin'], function(){
+
+    Route::resource('users', 'UsersController');
+
+});

@@ -14,9 +14,23 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
+                            <label class="col-md-4 control-label">@lang('validation.attributes.dni')</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="dni" value="{{ old('dni') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-4 control-label">@lang('validation.attributes.name')</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">@lang('validation.attributes.lu')</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="lu" value="{{ old('lu') }}">
                             </div>
                         </div>
 
